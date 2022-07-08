@@ -2,11 +2,44 @@
   "name": "astrdomainjs-ethers",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint --color --ext .ts src/ test/",
+    "lint:fix": "yarn run lint --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typechain": "typechain --target=ethers-v5 --out-dir types/contracts './contracts/*.json'"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@typechain/ethers-v5": "^7.0.1",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "chai": "^4.3.6",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.1",
+    "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
+    "typechain": "^5.1.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/chai-as-promised": "^7.1.5",
+    "chai-as-promised": "^7.1.1",
+    "ethers": "5.6.9"
+  },
+  "peerDependencies": {
+    "ethers": ">5"
+  }
 }
