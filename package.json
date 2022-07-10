@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "astrdomainjs-ethers with TypeScript compatiblity",
   "main": "dist/src/index.js",
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -15,8 +15,11 @@
     "test": "jest",
     "typechain": "typechain --target=ethers-v5 --out-dir types/contracts './contracts/*.json'"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "astr",
+    "domain"
+  ],
+  "author": "Masafumi Mori",
   "license": "ISC",
   "devDependencies": {
     "@typechain/ethers-v5": "^7.0.1",
