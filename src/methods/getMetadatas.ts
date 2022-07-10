@@ -13,7 +13,7 @@ export const getMetadatas =
     const tokenId = await contract.genTokenId(domain);
     const values = await contract.getMany(keys, tokenId);
 
-    const metadatas = keys.map((key, idx) => ({
+    const metadatas: MetaData[] = keys.map((key, idx) => ({
       key,
       value: values[idx],
     }));

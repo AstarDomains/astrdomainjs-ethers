@@ -27,9 +27,17 @@ export const getOwner =
       metadata = data;
     }
 
-    const ownerAddress = await contract.getOwner(domain);
+    let ownerAddress;
+    try {
+      ownerAddress = await contract.getOwner(domain);
+    } catch (e) {
+      if (e instanceof Error) {
+        console.error(e.message);
+        throw new Error('Failed to fetch the owner address');
+      }
+    }
 
-    if (!isAddress(ownerAddress)) {
+    if (ownerAddress && !isAddress(ownerAddress)) {
       throw new Error('Owner address is invalid');
     }
 
