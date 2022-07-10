@@ -24,7 +24,7 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Tests
-        run: yaen test
+        run: yarn test
 
   maybe-release:
     name: release
