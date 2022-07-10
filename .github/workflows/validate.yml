@@ -2,9 +2,7 @@ name: 'Validate code'
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
+    types: [opened, edited]
 
 jobs:
   test:
