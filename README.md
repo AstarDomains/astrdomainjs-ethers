@@ -1,94 +1,63 @@
-# Astar Web3 Domains
+# Astar Web3 Domains TS
 
-Nodejs SDK
+Nodejs SDK for interacting with astr domains
 
-Npm: https://www.npmjs.com/package/astrdomainjs-ethers
+Npm: https://www.npmjs.com/package/astrdomaints-ethers
 
-Github: https://github.com/AstarDomains/astrdomainjs-ethers
+Github: https://github.com/masafumimori/astrdomaints-ethers
 
-Before installing the package you need to check and be sure to install the packages below:
-
-```
-npm install ethers
-```
-
-Install Package
+## Installation
 
 ```
-npm install astrdomainjs-ethers
+npm install astrdomaints-ethers
+yarn add astrdomaints-ethers
 ```
 
-Call
+## Usage
 
-```
-const domainjs = require('astrdomainjs-ethers');
-```
+```typescript
+import { ethers } from 'ethers';
+import React, { useEffect, useState } from 'react';
 
-Set config
+import { getAstrDomainSDK, Address, ConfigType } from 'astrdomaints-ethers';
 
-```
-const config =
-{
-	testnet:{
-		rpcUrl: "",
-		contractAddress: ""
-	},
-	mainnet:{
-		rpcUrl: "https://rpc.astar.network:8545",
-		contractAddress: "0xA1019535E6b364523949EaF45F4B17521c1cb074"
-	},
-	defaultNetwork: "mainnet"
-}
-```
+// this is optional
+const config: ConfigType = {
+  testnet: {
+    rpcUrl: undefined,
+    contractAddress: undefined,
+  },
+  mainnet: {
+    rpcUrl: 'https://rpc.astar.network:8545',
+    contractAddress: '0xA1019535E6b364523949EaF45F4B17521c1cb074',
+  },
+  defaultNetwork: 'mainnet',
+};
 
-Install
+export const AstarDomain = () => {
+  const [domain, setDomain] = useState('');
+  const [owner, setOwner] = useState('');
 
-```
-   // install
-	const sdk = domainjs.SDK(config);
+  useEffect(() => {
+    const load = async () => {
+      const sdk = await getAstrDomainSDK(config);
 
-	// change your domains
-	const _domain = "astardomains.astr";
+      const domain = await sdk.getDomain('0x...');
+      setEns(domain ?? '');
 
-	// change your address
-	const _address = "0xbb48801EAF9947db8b49a96DEA231C5893125B9c";
+      const ownerInfo = await sdk.getOwner({ domain });
+      setOwner(ownerInfo.owner);
+    };
+    load();
+  }, [account]);
 
-	// resolve domain to get the address of the owner. metadata: true // false default return metadata along with domain information
-	const owner = await sdk.getOwner(_domain, false);
-
-	console.log(owner);
-
-	// get total domains
-	const balance = await sdk.balanceOf(_address);
-
-	console.log(balance);
-
-	// get a domain default from a user's address, requiring the user to set the default domain name initially.
-	const domain = await sdk.getDomain(_address);
-
-	console.log(domain);
-
-	// gets all the domains owned by an wallet address.
-	const domains = await sdk.getDomains(_address);
-
-	console.log(domains);
-
-	//get a value of metadata from the domain name
-	const _avatar = await sdk.getMetadata("avatar", _domain);
-
-	console.log(_avatar);
-
-	//get values of metadata from the domain name
-	const _values = await sdk.getMetadatas(["avatar", "website", "social:twitter"], _domain);
-
-	console.log(_values);
-
-	//namehash is a recursive process that can generate a unique hash for any valid domain name.
-	const hashname = await sdk.hashname(_domain);
-
-	console.log(hashname);
+  return (
+    <>
+      <p>{domain || `No Astar domain detected`}</p>
+      <p>{owner || `No Owner found`}</p>
+    </>
+  );
+};
 ```
 
-Pls update test.js for specific instructions
-
-Thanks!
+Other available methods can be found in the `src/methods` directory.
