@@ -1,5 +1,5 @@
 import { AstarDomainSDK } from '../../../src/types';
-import { getAstrDomainSDK } from '../../../src';
+import { getAstrDomainSDK } from '../../../src/getAstrDomainSDK';
 import { CONTRACT_OWNER, TEST_ACCOUNT } from '../../utils/data';
 
 describe('getDomain', () => {

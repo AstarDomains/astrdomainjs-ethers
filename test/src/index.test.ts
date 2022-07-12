@@ -1,4 +1,4 @@
-import { getAstrDomainSDK } from '../../src';
+import { getAstrDomainSDK } from '../../src/getAstrDomainSDK';
 import { defaultConfig } from '../../src/utils/defaults';
 import { ConfigType } from '../../src/types';
 

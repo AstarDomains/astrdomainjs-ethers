@@ -5,7 +5,7 @@ import { defaultKeys } from '@/utils/defaults';
 
 export type GetOwnerProps = {
   domain: string;
-  hasMetadata: boolean;
+  hasMetadata?: boolean;
 };
 
 export const getOwner =

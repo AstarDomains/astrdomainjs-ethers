@@ -1,5 +1,5 @@
 import { AstarDomainSDK } from '../../../src/types';
-import { getAstrDomainSDK } from '../../../src';
+import { getAstrDomainSDK } from '../../../src/getAstrDomainSDK';
 import { DOMAIN } from '../../utils/data';
 import { BigNumber } from 'ethers';
 

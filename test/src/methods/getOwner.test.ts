@@ -1,5 +1,5 @@
 import { AstarDomainSDK } from '../../../src/types';
-import { getAstrDomainSDK } from '../../../src';
+import { getAstrDomainSDK } from '../../../src/getAstrDomainSDK';
 import { CONTRACT_OWNER, DOMAIN } from '../../utils/data';
 import { defaultKeys } from '../../../src/utils/defaults';
 
