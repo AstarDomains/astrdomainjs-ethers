@@ -1,6 +1,6 @@
-import { AstarDomainSDK } from '../../../types';
+import { AstarDomainSDK } from '../../../src/types';
 import { getAstrDomainSDK } from '../../../src';
-import { CONTRACT_OWNER, DOMAIN, TEST_ACCOUNT } from '../../utils/data';
+import { CONTRACT_OWNER, DOMAIN } from '../../utils/data';
 import { defaultKeys } from '../../../src/utils/defaults';
 
 describe('getOwner', () => {

@@ -1,7 +1,8 @@
 import { getAstrDomainSDK } from '../../src';
 import { defaultConfig } from '../../src/utils/defaults';
-import { ConfigType } from '../../types';
+import { ConfigType } from '../../src/types';
 
+// TODO: create local deployment env for testing
 describe('AstrDomainSDK', () => {
   test('should get AstrDomainSDK', async () => {
     const sdk = await getAstrDomainSDK(defaultConfig);

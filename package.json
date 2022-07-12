@@ -1,6 +1,6 @@
 {
   "name": "astrdomaints-ethers",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "astrdomainjs-ethers with TypeScript compatiblity",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
@@ -13,7 +13,7 @@
     "lint": "eslint --color --ext .ts src/ test/",
     "lint:fix": "yarn run lint --fix",
     "test": "jest",
-    "typechain": "typechain --target=ethers-v5 --out-dir types/contracts './contracts/*.json'"
+    "typechain": "typechain --target=ethers-v5 --out-dir src/types/contracts './contracts/*.json'"
   },
   "keywords": [
     "astr",

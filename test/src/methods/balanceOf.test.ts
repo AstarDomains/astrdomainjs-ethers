@@ -1,4 +1,4 @@
-import { AstarDomainSDK } from '../../../types';
+import { AstarDomainSDK } from '../../../src/types';
 import { getAstrDomainSDK } from '../../../src';
 import { CONTRACT_OWNER } from '../../utils/data';
 import { BigNumber } from 'ethers';

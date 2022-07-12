@@ -1,4 +1,4 @@
-import { AstarDomainSDK } from '../../../types';
+import { AstarDomainSDK } from '../../../src/types';
 import { getAstrDomainSDK } from '../../../src';
 import { DOMAIN } from '../../utils/data';
 
